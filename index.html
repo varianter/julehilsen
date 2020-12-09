@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="nb">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="./src/index.css" />
+    <title>Julehilsen fra Variant</title>
+
+    <link rel="shortcut icon" href="./assets/favicon.png" type="image/png" />
+
+    <style>
+      /* Document specific styling here */
+    </style>
+  </head>
+  <body>
+    <main>
+      <article class="card">
+        <div class="page">
+          <div class="page__first"></div>
+          <div class="page__second">
+            <v-field title="Til">Deg</v-field>
+            <v-field title="Hilsen">God jul til deg!</v-field>
+            <v-field title="Fra">Meg</v-field>
+          </div>
+        </div>
+      </article>
+    </main>
+
+    <!-- Include variable injector script -->
+    <script src="./src/var-injector.js"></script>
+    <script>
+      const card = document.querySelector(".card");
+
+      card.addEventListener("click", () => {
+        if (card.classList.contains("card__open")) {
+          card.classList.remove("card__open");
+        } else {
+          card.classList.add("card__open");
+        }
+      });
+    </script>
+  </body>
+</html>

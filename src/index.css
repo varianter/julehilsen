@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css?family=IBM+Plex+Sans:400,600");
+
+:root {
+  --font-size-min: 10;
+  --font-size-max: 20;
+  --viewport-min: 300;
+  --viewport-max: 1200;
+
+  --type-scale: 1.2;
+
+  --type-scale-0: calc(var(--type-scale) * 1rem);
+  --type-scale-1: calc(var(--type-scale) * var(--type-scale-0));
+  --type-scale-2: calc(var(--type-scale) * var(--type-scale-1));
+  --type-scale-3: calc(var(--type-scale) * var(--type-scale-2));
+  --type-scale-4: calc(var(--type-scale) * var(--type-scale-3));
+  --type-scale-5: calc(var(--type-scale) * var(--type-scale-4));
+}
+
+html {
+  font-family: "IBM Plex Sans", serif;
+  font-size: calc(
+    (var(--font-size-min) * 1px) + (var(--font-size-max) - var(--font-size-min)) *
+      (
+        (100vw - (var(--viewport-min) * 1px)) /
+          (var(--viewport-max) - var(--viewport-min))
+      )
+  );
+  font-size: 16px;
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  letter-spacing: -0.015em;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card {
+  height: 504px; /* Height of SVG */
+  width: 360px; /* Width of SVG */
+  font-size: 1rem;
+  box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
+  text-align: center;
+  position: relative;
+  transition: transform 1s 0.3s;
+  cursor: pointer;
+}
+
+/* .card:not(.card__open):hover .page__first {
+  transform: rotateY(-30deg);
+} */
+
+.page {
+  width: 100%;
+  height: 100%;
+  perspective: 1500px;
+}
+.page__first {
+  background-image: url(/assets/purple-first-front.svg);
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  transition: all 1s 0.3s;
+  transform-origin: 0 50%;
+  z-index: 2;
+}
+.page__first::after {
+  content: "";
+  background-image: url(/assets/purple-first-back.svg);
+  position: absolute;
+  padding: 2rem;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  transform: rotateY(180deg);
+  transition: all 0.3s 0.5s;
+}
+.page__second {
+  background-image: url(/assets/purple-second.svg);
+
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card__open {
+  transform: translateX(50%);
+}
+.card__open .page__first {
+  transform: rotateY(-180deg);
+  box-shadow: 1.5rem 2rem 3rem rgba(0, 0, 0, 0.25);
+}
+.card__open .page__first::after {
+  opacity: 1;
+}
