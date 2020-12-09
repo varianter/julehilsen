@@ -87,8 +87,10 @@ window.addEventListener("load", function () {
     top.classList.remove("var-injector--open");
   });
 
-  document.body.insertBefore(top, main);
-  updateUrlBox();
+  if (!location.search) {
+    document.body.insertBefore(top, main);
+    updateUrlBox();
+  }
 });
 
 function getLists() {
