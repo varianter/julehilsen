@@ -3,6 +3,11 @@
   v-item {
     background: rgb(255, 255, 224, 0.5);
   }
+
+  .hiddenInput v-field,
+  .hiddenInput v-item {
+    background: transparent;
+  }
 }
 
 .var-injector {

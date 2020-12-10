@@ -90,6 +90,8 @@ window.addEventListener("load", function () {
   if (!location.search) {
     document.body.insertBefore(top, main);
     updateUrlBox();
+  } else {
+    document.body.classList.add("hiddenInput");
   }
 });
 
