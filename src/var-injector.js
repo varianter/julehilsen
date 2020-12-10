@@ -87,8 +87,12 @@ window.addEventListener("load", function () {
     top.classList.remove("var-injector--open");
   });
 
-  document.body.insertBefore(top, main);
-  updateUrlBox();
+  if (!location.search) {
+    document.body.insertBefore(top, main);
+    updateUrlBox();
+  } else {
+    document.body.classList.add("hiddenInput");
+  }
 });
 
 function getLists() {
@@ -437,7 +441,7 @@ function container(form) {
       },
       [
         img({
-          src: "/assets/edit.svg",
+          src: "assets/edit.svg",
           alt: title,
         }),
       ]
@@ -453,7 +457,7 @@ function insertCss() {
     link({
       type: "text/css",
       rel: "stylesheet",
-      href: "/src/inject-style.css",
+      href: "src/inject-style.css",
     })
   );
 }
@@ -490,7 +494,7 @@ function objectToUrl(obj) {
   for (let key of Object.keys(obj)) {
     params.set(key, obj[key]);
   }
-  return getUrl() + "?" + params.toString();
+  return getUrl() + encodeParams(params);
 }
 
 function getUrl() {
@@ -513,7 +517,7 @@ function toBoolean(val) {
 }
 
 function queryToObject() {
-  const params = new URLSearchParams(document.location.search);
+  const params = new URLSearchParams(decodeParams(document.location.search));
   let obj = {};
   for (let [key, val] of params) {
     const metadata = getPath(key);
@@ -588,4 +592,15 @@ function translateMonths(str) {
     lowerCase = lowerCase.replace(from, to);
   });
   return lowerCase;
+}
+
+function decodeParams(str) {
+  if (!str) {
+    return "";
+  }
+  return LZString.decompressFromEncodedURIComponent(str.slice(1));
+}
+function encodeParams(params) {
+  if (!params) return "";
+  return "?" + LZString.compressToEncodedURIComponent(params.toString());
 }
