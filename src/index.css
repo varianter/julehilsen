@@ -54,6 +54,7 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-secondary4__tint4);
 }
 .card {
   height: 504px; /* Height of SVG */
