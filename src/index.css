@@ -59,7 +59,6 @@ main {
   height: 504px; /* Height of SVG */
   width: 360px; /* Width of SVG */
   font-size: 1rem;
-  font-weight: 500;
   box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
   text-align: center;
   position: relative;
@@ -128,4 +127,8 @@ main {
 }
 .card__open .page__first::after {
   opacity: 1;
+}
+
+.fancy {
+  font-weight: 500;
 }
