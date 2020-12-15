@@ -54,13 +54,13 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--color-secondary4__tint4);
 }
 .card {
   height: 504px; /* Height of SVG */
   width: 360px; /* Width of SVG */
   font-size: 1rem;
   box-shadow: 1rem 2rem 3rem rgba(0, 0, 0, 0.25);
-  text-align: center;
   position: relative;
   transition: transform 1s 0.3s;
   cursor: pointer;
@@ -111,20 +111,35 @@ main {
   top: 0;
   left: 0;
   opacity: 1;
-  padding: 2rem;
+  padding: 3rem;
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
-.card__open {
-  transform: translateX(50%);
-}
 .card__open .page__first {
   transform: rotateY(-180deg);
   box-shadow: 1.5rem 2rem 3rem rgba(0, 0, 0, 0.25);
 }
 .card__open .page__first::after {
   opacity: 1;
+}
+
+.to {
+  font-weight: 500;
+  font-size: 1.625rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.from {
+  font-weight: 500;
+  margin-top: auto;
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .card__open {
+    transform: translateX(50%);
+  }
 }
