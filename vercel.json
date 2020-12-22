@@ -3,5 +3,6 @@
     "api/preview.ts": {
       "includeFiles": "_files/**"
     }
-  }
+  },
+  "rewrites": [{ "source": "/", "destination": "/api/index" }]
 }
