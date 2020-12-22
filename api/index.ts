@@ -18,7 +18,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const obj = {
     ogTitle: "Julehilsen fra Variant",
-    ogDescription: input,
+    ogDescription: input ? input : "Lag din egen julehilsen fra Variant!",
     leadImageUrl,
     ogUrl,
   };
