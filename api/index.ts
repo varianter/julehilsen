@@ -13,10 +13,12 @@ export default async (req: NowRequest, res: NowResponse) => {
   const input = keyDec["input-til"];
 
   const proto = req.headers["x-forwarded-proto"] == "http" ? "http" : "https";
-  const ogUrl = `${proto}://${req.headers.host}${req.url}`;
-  const leadImageUrl = `${proto}://${req.headers.host}/api/preview${req.url}`;
+  const ogDomain = `${proto}://${req.headers.host}`;
+  const ogUrl = `ogDomain${req.url}`;
+  const leadImageUrl = `ogDomain/api/preview${req.url}`;
 
   const obj = {
+    ogDomain,
     ogTitle: "Julehilsen fra Variant",
     ogDescription: input ? input : "Lag din egen julehilsen fra Variant!",
     leadImageUrl,
