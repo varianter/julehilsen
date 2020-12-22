@@ -41,8 +41,8 @@ export default async (req: NowRequest, res: NowResponse) => {
       .pipe(res);
   };
 
-  const keyDec = parse(decompressFromEncodedURIComponent(undefined));
-  const to = keyDec?.["input-til"];
+  const keyDec = parse(decompressFromEncodedURIComponent(key));
+  const to = keyDec["input-til"];
   if (!key || !keyDec || !to) {
     return render();
   }
