@@ -19,6 +19,7 @@ registerFont(join(base, "recoleta.otf"), {
 export default async (req: NowRequest, res: NowResponse) => {
   const bg = await loadImage(join(base, "background.jpg"));
   const key = Object.keys(req.query)[0];
+  const keyDec = parse(decompressFromEncodedURIComponent(key));
 
   const canvas = createCanvas(bg.width, bg.height);
   const ctx = canvas.getContext("2d");
@@ -41,7 +42,6 @@ export default async (req: NowRequest, res: NowResponse) => {
       .pipe(res);
   };
 
-  const keyDec = parse(decompressFromEncodedURIComponent(key));
   const to = keyDec["input-til"];
   if (!key || !keyDec || !to) {
     return render();
