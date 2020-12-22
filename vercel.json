@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "api/preview.ts": {
+      "includeFiles": "_files/**"
+    }
+  }
+}
