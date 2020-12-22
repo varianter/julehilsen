@@ -14,8 +14,8 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   const proto = req.headers["x-forwarded-proto"] == "http" ? "http" : "https";
   const ogDomain = `${proto}://${req.headers.host}`;
-  const ogUrl = `ogDomain${req.url}`;
-  const leadImageUrl = `ogDomain/api/preview${req.url}`;
+  const ogUrl = `${ogDomain}${req.url}`;
+  const leadImageUrl = `${ogDomain}/api/preview${req.url}`;
 
   const obj = {
     ogDomain,
