@@ -54,7 +54,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   const x = bg.width / 3 + 60;
   const maxWidth = bg.width - x - 60;
 
-  const { emHeightAscent: fontHeight } = ctx.measureText(String(to));
+  const { actualBoundingBoxAscent: fontHeight } = ctx.measureText(String(to));
 
   const lines = getLines(ctx, String(to), maxWidth);
 

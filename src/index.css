@@ -1,4 +1,4 @@
-@import url("https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css");
+@import url('https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css');
 
 :root {
   --font-size-min: 10;
@@ -17,7 +17,7 @@
 }
 
 html {
-  font-family: "Graphik Web", serif;
+  font-family: 'Graphik Web', serif;
   font-size: calc(
     (var(--font-size-min) * 1px) + (var(--font-size-max) - var(--font-size-min)) *
       (
@@ -76,7 +76,7 @@ main {
   perspective: 1500px;
 }
 .page__first {
-  background-image: url(../assets/purple-first-front.svg);
+  background-image: url(../assets/front.svg);
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -89,8 +89,8 @@ main {
   z-index: 2;
 }
 .page__first::after {
-  content: "";
-  background-image: url(../assets/purple-first-back.svg);
+  content: '';
+  background-image: url(../assets/inside-left.svg);
   position: absolute;
   padding: 2rem;
   top: 0;
@@ -103,7 +103,7 @@ main {
   transition: all 0.3s 0.5s;
 }
 .page__second {
-  background-image: url(../assets/purple-second.svg);
+  background-image: url(../assets/inside-right.svg);
 
   width: 100%;
   height: 100%;
