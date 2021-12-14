@@ -66,10 +66,6 @@ main {
   cursor: pointer;
 }
 
-/* .card:not(.card__open):hover .page__first {
-  transform: rotateY(-30deg);
-} */
-
 .page {
   width: 100%;
   height: 100%;
@@ -123,6 +119,10 @@ main {
 }
 .card__open .page__first::after {
   opacity: 1;
+}
+
+.card__sneakpeek .page__first {
+  transform: rotateY(-30deg);
 }
 
 .to {

@@ -42,15 +42,24 @@
     <script src="https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js"></script>
     <script src="src/var-injector.js"></script>
     <script>
-      const card = document.querySelector(".card");
+      const card = document.querySelector('.card');
 
-      card.addEventListener("click", () => {
-        if (card.classList.contains("card__open")) {
-          card.classList.remove("card__open");
+      card.addEventListener('click', () => {
+        if (card.classList.contains('card__open')) {
+          card.classList.remove('card__open');
         } else {
-          card.classList.add("card__open");
+          card.classList.add('card__open');
         }
       });
+
+      setTimeout(() => {
+        card.classList.add('card__sneakpeek');
+      }, 500);
+
+      setTimeout(() => {
+        card.classList.add('card__open');
+        card.classList.remove('card__sneakpeek');
+      }, 3000);
     </script>
   </body>
 </html>
