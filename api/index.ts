@@ -9,7 +9,8 @@ const template = readFileSync(join(base, "template.html"), "utf-8");
 
 export default async (req: NowRequest, res: NowResponse) => {
   const key = Object.keys(req.query)[0];
-  const keyDec = parse(decompressFromEncodedURIComponent(key));
+  const decompressedKey = decompressFromEncodedURIComponent(key);
+  const keyDec = decompressedKey ? parse(decompressedKey) : {};
   const input = keyDec["input-til"];
 
   const proto = req.headers["x-forwarded-proto"] == "http" ? "http" : "https";
@@ -20,12 +21,12 @@ export default async (req: NowRequest, res: NowResponse) => {
   const obj = {
     ogDomain,
     ogTitle: "Julehilsen fra Variant",
-    ogDescription: input ? input : "Lag din egen julehilsen fra Variant!",
+    ogDescription: input || "Lag din egen julehilsen fra Variant!",
     leadImageUrl,
     ogUrl,
   };
   const data = template.replace(/\{\{(\w+)\}\}/gi, function (_, name) {
-    return obj[name];
+    return obj[name as keyof typeof obj] as string;
   });
 
   res.setHeader("Content-type", "text/html");

@@ -10,8 +10,8 @@ import { decompressFromEncodedURIComponent } from "lz-string";
 import { parse } from "querystring";
 
 const base = join(__dirname, "..", "_files");
-registerFont(join(base, "recoleta.otf"), {
-  family: "Recoleta",
+registerFont(join(base, "britti.woff2"), {
+  family: "Britti",
   weight: "500",
   style: "normal",
 });
@@ -19,7 +19,8 @@ registerFont(join(base, "recoleta.otf"), {
 export default async (req: NowRequest, res: NowResponse) => {
   const bg = await loadImage(join(base, "background.jpg"));
   const key = Object.keys(req.query)[0];
-  const keyDec = parse(decompressFromEncodedURIComponent(key));
+  const decompressedKey = decompressFromEncodedURIComponent(key);
+  const keyDec = decompressedKey ? parse(decompressedKey) : {};
 
   const canvas = createCanvas(bg.width, bg.height);
   const ctx = canvas.getContext("2d");
@@ -49,7 +50,7 @@ export default async (req: NowRequest, res: NowResponse) => {
 
   ctx.textAlign = "left";
   ctx.fillStyle = "#FBFAF7";
-  ctx.font = "70px 'Recoleta'";
+  ctx.font = "70px 'Britti'";
 
   const x = bg.width / 3 + 60;
   const maxWidth = bg.width - x - 60;
@@ -75,10 +76,10 @@ export default async (req: NowRequest, res: NowResponse) => {
 function getLines(
   ctx: CanvasRenderingContext2D,
   text: string,
-  maxWidth: number
+  maxWidth: number,
 ) {
   const words = text.split(" ");
-  const lines = [];
+  const lines: string[] = [];
 
   let currentLine = words[0];
   for (let i = 1; i < words.length; i++) {
