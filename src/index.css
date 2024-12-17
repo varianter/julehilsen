@@ -73,6 +73,7 @@ main {
   position: relative;
   transition: transform 1s 0.3s;
   cursor: pointer;
+  color: #fffbf0;
 }
 
 .page {

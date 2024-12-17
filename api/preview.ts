@@ -49,7 +49,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   ctx.textAlign = "left";
-  ctx.fillStyle = "#FBFAF7";
+  ctx.fillStyle = "#FFFBF0";
   ctx.font = "70px 'Britti'";
 
   const x = bg.width / 3 + 60;

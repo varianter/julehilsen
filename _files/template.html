@@ -14,7 +14,7 @@
     <meta property="og:title" content="{{ogTitle}}" />
     <meta property="og:description" content="{{ogDescription}}" />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="{{leadImageUrl}}" />
+    <meta property="og:image" content="assets/background.jpg" />
     <meta property="og:url" content="{{ogUrl}}" />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -22,7 +22,7 @@
     <meta property="twitter:url" content="{{ogUrl}}" />
     <meta name="twitter:title" content="{{ogTitle}}" />
     <meta name="twitter:description" content="{{ogDescription}}" />
-    <meta name="twitter:image" content="{{leadImageUrl}}" />
+    <meta name="twitter:image" content="assets/background.jpg" />
   </head>
   <body>
     <main>
@@ -42,24 +42,24 @@
     <script src="https://unpkg.com/lz-string@1.4.4/libs/lz-string.min.js"></script>
     <script src="src/var-injector.js"></script>
     <script>
-      const card = document.querySelector('.card');
+      const card = document.querySelector(".card");
 
-      card.addEventListener('click', () => {
-        if (card.classList.contains('card__open')) {
-          card.classList.remove('card__open');
+      card.addEventListener("click", () => {
+        if (card.classList.contains("card__open")) {
+          card.classList.remove("card__open");
         } else {
-          card.classList.add('card__open');
+          card.classList.add("card__open");
         }
-        card.classList.remove('card__sneakpeek');
+        card.classList.remove("card__sneakpeek");
       });
 
       setTimeout(() => {
-        card.classList.add('card__sneakpeek');
+        card.classList.add("card__sneakpeek");
       }, 500);
 
       setTimeout(() => {
-        card.classList.add('card__open');
-        card.classList.remove('card__sneakpeek');
+        card.classList.add("card__open");
+        card.classList.remove("card__sneakpeek");
       }, 3000);
     </script>
   </body>
