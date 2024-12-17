@@ -26,7 +26,6 @@ export default async (req: NowRequest, res: NowResponse) => {
   const ctx = canvas.getContext("2d");
 
   ctx.quality = "best";
-  ctx.imageSmoothingQuality = "high";
   ctx.patternQuality = "best";
 
   ctx.drawImage(bg, 0, 0);
@@ -49,7 +48,7 @@ export default async (req: NowRequest, res: NowResponse) => {
   }
 
   ctx.textAlign = "left";
-  ctx.fillStyle = "#FFFBF0";
+  ctx.fillStyle = "#111111";
   ctx.font = "70px 'Britti'";
 
   const x = bg.width / 3 + 60;
