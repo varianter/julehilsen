@@ -1,4 +1,13 @@
-@import url('https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css');
+@import url("https://styleguide.variant.no/_next/static/css/5feffe362c34ea575951.css");
+
+@font-face {
+  font-family: "Britti";
+  src: url(/assets/britti.woff2);
+}
+
+* {
+  font-family: "Britti", sans-serif !important;
+}
 
 :root {
   --font-size-min: 10;
@@ -17,7 +26,7 @@
 }
 
 html {
-  font-family: 'Graphik Web', serif;
+  font-family: "Britti", sans-serif;
   font-size: calc(
     (var(--font-size-min) * 1px) + (var(--font-size-max) - var(--font-size-min)) *
       (
@@ -64,6 +73,7 @@ main {
   position: relative;
   transition: transform 1s 0.3s;
   cursor: pointer;
+  color: #111111;
 }
 
 .page {
@@ -85,7 +95,7 @@ main {
   z-index: 2;
 }
 .page__first::after {
-  content: '';
+  content: "";
   background-image: url(../assets/inside-left.svg);
   position: absolute;
   padding: 2rem;
